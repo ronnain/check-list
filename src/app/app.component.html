@@ -1,7 +1,18 @@
-<div class="container">
-  <div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-primary">Left</button>
-    <button type="button" class="btn btn-primary">Middle</button>
-    <button type="button" class="btn btn-primary">Right</button>
-  </div>
+<div class="container mainContainer">
+  <app-header></app-header>
+  <app-sub-header></app-sub-header>
+  
+  
+    <div class="row doubleCol">
+        <div class="col">
+          <app-goals></app-goals>
+        </div>
+        <div class="col">
+          <app-rewards></app-rewards>
+        </div>
+    </div>
+  
+
+  <app-check-list></app-check-list>
+  <app-new-habit></app-new-habit>
 </div>

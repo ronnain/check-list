@@ -1,1 +1,84 @@
 /* You can add global styles to this file, and also import other style files */
+@import './styles/colors.scss';
+
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family:  Roboto, "Helvetica Neue", sans-serif;
+    background-color: #f0f0f0!important;
+    padding-bottom: 5rem;
+}
+
+.mainBlueColor {
+    color: $main-blue-color;
+}
+
+.section {
+    background-color: #fff;
+    padding: 2rem!important;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1);
+    height: 100%;
+    width: 100%;
+    margin-top: 30px;
+
+    &:hover {
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,.3);
+    }
+
+    &__header{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+
+        &__logo {
+            margin-right: 15px;
+            img {
+                max-width: 50px;
+                width: 50px;
+            }
+        }
+
+        &__texts {
+            &__title {
+                font-size: 2rem;
+            }
+            &__desc {
+                font-size: 1.15rem;
+            }
+        }
+    }
+
+    &__list {
+        &__item {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+
+            &__block {
+                display: block;
+            }
+
+            .form-check {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                .form-check-input {
+                    margin-right: 10px;
+                }
+            }
+
+            &__textarea {
+                width: 100%;
+
+                textarea {
+                    font-size: 1rem;
+                }
+            }
+        }
+        &__item:first-child {
+            margin-top: 20px;
+        }
+    }
+}

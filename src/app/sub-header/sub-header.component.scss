@@ -1,0 +1,15 @@
+.subHeader {
+    &__container {
+        display: flex;
+        justify-content: left;
+        width: 100%;
+        align-items: center;
+
+        &__text {
+            p {
+                font-size: 1.1rem;
+                margin: 0;
+            }
+        }
+    }
+}
