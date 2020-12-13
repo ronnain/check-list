@@ -6,9 +6,16 @@
     }
     &__list {
         &__item {
+            margin-bottom: 20px;
             &__newHabit {
                 white-space: pre;
+                margin-top: 6px;
+                font-weight: bold;
             }
         }
     }
+}
+
+.checkListAddBtn {
+    font-size: 0.8rem;
 }

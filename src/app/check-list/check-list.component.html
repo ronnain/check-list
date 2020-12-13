@@ -8,9 +8,34 @@
             <p class="section__header__texts__desc">A valider chaque jour</p>
             <p class="section__header__texts__desc">3 cases minimum à valider&nbsp;!</p>
         </div>
-
     </div>
+
     <div class="section__list">
+
+        <div
+          class="section__list__item"
+          *ngFor="let task of taskList;let index = index;">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckNew">
+                <mat-form-field class="section__list__item__textarea">
+                    <textarea type="text" matInput></textarea>
+                    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeTask(index)">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="check-list__list__item">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckHabit">
+                <label class="form-check-label" for="flexCheckHabit">
+                    J'ai tenu mon habitude&nbsp;:
+                </label>
+                <p class="check-list__list__item__newHabit">{{newHabit}}</p>
+            </div>
+        </div>
+
         <div class="section__list__item">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDailyGoal">
@@ -19,44 +44,13 @@
                 </label>
             </div>
         </div>
-        <div class="section__list__item">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckNew">
-                <mat-form-field class="section__list__item__textarea">
-                    <mat-label>J'ai appris quelque chose de nouveau&nbsp;:</mat-label>
-                    <textarea type="text" placeholder="Ex. Le système Dominic" matInput></textarea>
-                </mat-form-field>
-            </div>
-        </div>
+
         <div class="section__list__item">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckSport">
                 <label class="form-check-label" for="flexCheckSport">
                     J'ai fait de l'activité physique
                 </label>
-            </div>
-        </div>
-
-        <div class="check-list__list__item">
-            <div class="form-check section__list__item__block">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckIdeas">
-                    <label class="form-check-label" for="flexCheckIdeas">
-                        J'ai trouvé au moins 3 nouvelles idées&nbsp;:
-                    </label>
-            </div>
-            <div class="form-check section__list__item__block">
-                <mat-form-field
-                  *ngFor="let idea of ideasList;let index = index;"
-                  class="section__list__item__textarea">
-                    <mat-label>Idée {{index+1}}</mat-label>
-                    <textarea type="text" placeholder="Ex. Lire au moins 50 pages" matInput></textarea>
-                    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeIdeas(index)">
-                        <mat-icon>close</mat-icon>
-                    </button>
-                </mat-form-field>
-                <button class="mainBlueColor" mat-icon-button aria-label="Ajouter des idées" (click)="addIdeas()">
-                    <mat-icon>add</mat-icon>
-                </button>
             </div>
         </div>
 
@@ -88,30 +82,41 @@
             </div>
         </div>
 
-        <div class="check-list__list__item">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckHabit">
-                <label class="form-check-label" for="flexCheckHabit">
-                    J'ai tenu mon habitude&nbsp;:
-                </label>
-                <p class="check-list__list__item__newHabit">{{newHabit}}</p>
-            </div>
-        </div>
-        <div
-          class="section__list__item"
-          *ngFor="let task of taskList;let index = index;">
+        <div class="section__list__item">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckNew">
                 <mat-form-field class="section__list__item__textarea">
-                    <textarea type="text" matInput></textarea>
-                    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeTask(index)">
-                        <mat-icon>close</mat-icon>
-                    </button>
+                    <mat-label>J'ai appris quelque chose de nouveau&nbsp;:</mat-label>
+                    <textarea type="text" placeholder="Ex. Le système Dominic" matInput></textarea>
                 </mat-form-field>
             </div>
         </div>
-        <button class="mainBlueColor" mat-icon-button aria-label="Ajouter des tâches" (click)="addTask()">
-            <mat-icon>add</mat-icon>
+
+        <div class="check-list__list__item">
+            <div class="form-check section__list__item__block">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckIdeas">
+                    <label class="form-check-label" for="flexCheckIdeas">
+                        J'ai trouvé au moins 3 nouvelles idées&nbsp;:
+                    </label>
+            </div>
+            <div class="form-check section__list__item__block">
+                <mat-form-field
+                  *ngFor="let idea of ideasList;let index = index;"
+                  class="section__list__item__textarea">
+                    <mat-label>Idée {{index+1}}</mat-label>
+                    <textarea type="text" placeholder="Ex. Lire au moins 50 pages" matInput></textarea>
+                    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeIdeas(index)">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+                <button class="mainBlueColor checkListAddBtn" mat-icon-button aria-label="Ajouter des idées" (click)="addIdeas()">
+                    <mat-icon>add</mat-icon>&nbsp;Ajouter une idée
+                </button>
+            </div>
+        </div>
+
+        <button class="mainBlueColor checkListAddBtn" mat-icon-button aria-label="Ajouter des tâches" (click)="addTask()">
+            <mat-icon>add</mat-icon>&nbsp;Ajouter une tâche
         </button>
     </div>
 </div>
