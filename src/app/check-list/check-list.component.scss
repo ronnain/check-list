@@ -1,0 +1,14 @@
+.check-list {
+    &__inputNumber {
+        width: 60px;
+        text-align: center;
+        font-weight: bold;
+    }
+    &__list {
+        &__item {
+            &__newHabit {
+                white-space: pre;
+            }
+        }
+    }
+}

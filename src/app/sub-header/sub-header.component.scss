@@ -7,8 +7,17 @@
 
         &__text {
             p {
+                display: inline-block;
                 font-size: 1.1rem;
                 margin: 0;
+                .pDays {
+                    display: inline;
+                }
+            }
+            &__counter {
+                font-size: 2rem;
+                width: 100px;
+                text-align: center;
             }
         }
     }

@@ -1,3 +1,4 @@
+import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckListComponent implements OnInit {
 
+  @Input() newHabit: string ='';
+
+  ideasList: string[] = [''];
+  taskList: string[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addIdeas() {
+    this.ideasList.push('');
+  }
+
+  removeIdeas(index: number) {
+    this.ideasList.splice(index, 1);
+  }
+
+  addTask() {
+    this.taskList.push('');
+  }
+
+  removeTask(index: number) {
+    this.taskList.splice(index, 1);
   }
 
 }

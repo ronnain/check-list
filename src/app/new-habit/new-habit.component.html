@@ -5,7 +5,7 @@
             <img src="assets/self_improvement.svg"/>
         </div>
         <div class="section__header__texts">
-            <p class="section__header__texts__title mainBlueColor">MA NOUVELLE HABITUDE</p>
+            <p class="section__header__texts__title mainBlueColor">Ma nouvelle habitude</p>
             <p class="section__header__texts__desc">Ce que je souhaite instaurer dans la vie</p>
         </div>
     </div>
@@ -13,7 +13,7 @@
     <div class="section__list">
         <mat-form-field class="section__list__item__textarea">
             <mat-label>Ma nouvelle super habitude</mat-label>
-            <textarea type="text" placeholder="Ex. Lire tous les jours" matInput required></textarea>
+            <textarea type="text" placeholder="Ex. Lire tous les jours" [(ngModel)]="newHabit" (ngModelChange)="changeHabit()" matInput required></textarea>
         </mat-form-field>
         <div class="section__list__item">
             <mat-form-field class="section__list__item__textarea">
@@ -46,7 +46,7 @@
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckCorrectPlaced">
             <label class="form-check-label" for="flexCheckCorrectPlaced">
-                Bien placé dans la journée ?
+                Bien placé dans la journée&nbsp;?
             </label>
         </div>
 

@@ -1,8 +1,8 @@
 <div class="container mainContainer">
   <app-header></app-header>
   <app-sub-header></app-sub-header>
-  
-  
+
+
     <div class="row doubleCol">
         <div class="col">
           <app-goals></app-goals>
@@ -11,8 +11,8 @@
           <app-rewards></app-rewards>
         </div>
     </div>
-  
 
-  <app-check-list></app-check-list>
-  <app-new-habit></app-new-habit>
+
+  <app-check-list [newHabit]="newHabit"></app-check-list>
+  <app-new-habit [newHabit]="newHabit" (newHabitChange)='newHabit = $event'></app-new-habit>
 </div>

@@ -10,6 +10,7 @@ import { GoalsComponent } from './goals/goals.component';
 import { CheckListComponent } from './check-list/check-list.component';
 import { NewHabitComponent } from './new-habit/new-habit.component';
 import { RewardsComponent } from './rewards/rewards.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RewardsComponent } from './rewards/rewards.component';
   imports: [
     BrowserModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

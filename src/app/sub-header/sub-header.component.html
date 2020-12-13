@@ -4,7 +4,12 @@
             <img src="assets/link.svg"/>
         </div>
         <div class="subHeader__container__text">
-            <p>Aujourd'hui cela fait 28 jours que je valide ma checklist !</p>
+            <p>Aujourd'hui cela fait</p>
+            <mat-form-field class="subHeader__container__text__counter">
+                <input matInput type="number" [(ngModel)]="counter">
+            </mat-form-field>
+            <p class="pDays">jours </p>
+            <p>que je valide ma checklist&nbsp;!</p>
         </div>
     </div>
 </div>

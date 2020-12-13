@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubHeaderComponent implements OnInit {
 
+  counter:number = 0;
+
   constructor() { }
 
   ngOnInit(): void {
