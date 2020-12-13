@@ -11,6 +11,7 @@ import { CheckListComponent } from './check-list/check-list.component';
 import { NewHabitComponent } from './new-habit/new-habit.component';
 import { RewardsComponent } from './rewards/rewards.component';
 import { FormsModule } from '@angular/forms';
+import { PrintBtnComponent } from './print-btn/print-btn.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     GoalsComponent,
     CheckListComponent,
     NewHabitComponent,
-    RewardsComponent
+    RewardsComponent,
+    PrintBtnComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@
         <div class="subHeader__container__text">
             <p>Aujourd'hui cela fait</p>
             <mat-form-field class="subHeader__container__text__counter">
-                <input matInput type="number" [(ngModel)]="counter">
+                <input matInput type="number" [(ngModel)]="counter" (ngModelChange)="updateCounter()">
             </mat-form-field>
             <p class="pDays">jours </p>
             <p>que je valide ma checklist&nbsp;!</p>

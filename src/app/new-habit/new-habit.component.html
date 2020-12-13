@@ -1,4 +1,4 @@
-<div class="container section">
+<div class="container section new-habit">
 
     <div class="section__header d-flex justify-content-center">
         <div class="section__header__logo">
@@ -13,12 +13,12 @@
     <div class="section__list">
         <mat-form-field class="section__list__item__textarea">
             <mat-label>Ma nouvelle super habitude</mat-label>
-            <textarea type="text" placeholder="Ex. Lire tous les jours" [(ngModel)]="newHabit" (ngModelChange)="changeHabit()" matInput required></textarea>
+            <textarea type="text" placeholder="Ex. Lire tous les jours" [(ngModel)]="newHabit.text" matInput required></textarea>
         </mat-form-field>
         <div class="section__list__item">
             <mat-form-field class="section__list__item__textarea">
                 <mat-label>Le moment exact de la journée où je le fais (juste après l'habitude que j'ai déjà):</mat-label>
-                <textarea type="text" placeholder="Ex. Dès que je rentre dans les transport en commun" matInput required></textarea>
+                <textarea type="text" placeholder="Ex. Dès que je rentre dans les transport en commun" [(ngModel)]="newHabit.when" matInput required></textarea>
             </mat-form-field>
         </div>
     </div>

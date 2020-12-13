@@ -1,3 +1,4 @@
+import { EventEmitter, Input, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,11 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubHeaderComponent implements OnInit {
 
-  counter:number = 0;
+  @Output() onUpdatedCounter = new EventEmitter<number>();
+
+  @Input() counter: number = 0;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  updateCounter() {
+    console.log("ici");
+
+    this.onUpdatedCounter.emit(this.counter);
+  }
 }

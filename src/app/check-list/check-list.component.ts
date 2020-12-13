@@ -8,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckListComponent implements OnInit {
 
-  @Input() newHabit: string ='';
+  @Input() newHabit:any = {text:''};
+  @Input() ideas:any = {ideasList:['']};
+  @Input() tasks:any = {taskList:[]};
 
-  ideasList: string[] = [''];
-  taskList: string[] = [];
+  checkedInputs: any = {}
 
   constructor() { }
 
@@ -19,19 +20,22 @@ export class CheckListComponent implements OnInit {
   }
 
   addIdeas() {
-    this.ideasList.push('');
+    this.ideas.ideasList.push('');
   }
 
   removeIdeas(index: number) {
-    this.ideasList.splice(index, 1);
+    this.ideas.ideasList.splice(index, 1);
   }
 
   addTask() {
-    this.taskList.push('');
+    this.tasks.taskList.push('');
   }
 
   removeTask(index: number) {
-    this.taskList.splice(index, 1);
+    this.tasks.taskList.splice(index, 1);
   }
 
+  trackByFn(index:any, item:any) {
+    return index;
+  }
 }

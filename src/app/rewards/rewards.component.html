@@ -12,19 +12,19 @@
         <div class="section__list__item">
             <mat-form-field class="section__list__item__textarea">
                 <mat-label>30 jours:</mat-label>
-                <textarea type="text" placeholder="Ex. Lire au moins 50 pages" matInput required></textarea>
+                <textarea type="text" placeholder="Ex. Un bon d'achat de 50€" [(ngModel)]="rewards.rewardsList[0]" matInput required></textarea>
             </mat-form-field>
         </div>
         <div class="section__list__item">
             <mat-form-field class="section__list__item__textarea">
                 <mat-label>100 jours:</mat-label>
-                <textarea type="text" placeholder="Ex. Lire au moins 50 pages" matInput required></textarea>
+                <textarea type="text" placeholder="Ex. Une console de jeu" [(ngModel)]="rewards.rewardsList[1]" matInput required></textarea>
             </mat-form-field>
         </div>
         <div class="section__list__item">
             <mat-form-field class="section__list__item__textarea">
                 <mat-label>365 jours:</mat-label>
-                <textarea type="text" placeholder="Ex. Lire au moins 50 pages" matInput required></textarea>
+                <textarea type="text" placeholder="Ex. Un voyage exceptionnelle" [(ngModel)]="rewards.rewardsList[2]" matInput required></textarea>
             </mat-form-field>
         </div>
     </div>

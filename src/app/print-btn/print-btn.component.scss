@@ -1,0 +1,12 @@
+@import '../../styles/colors.scss';
+div.fixed {
+    position: fixed;
+    bottom: 15px;
+    right: 20px;
+}
+
+.printBtn {
+    &__btn {
+        background-color: $main-blue-color;
+    }
+}
