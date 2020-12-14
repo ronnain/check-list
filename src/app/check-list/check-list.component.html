@@ -20,7 +20,11 @@
                 <label class="form-check-label" for="flexCheckHabit">
                     J'ai tenu mon habitude&nbsp;:
                 </label>
-                <p class="check-list__list__item__newHabit">{{newHabit? newHabit.text : ''}}</p>
+                <p
+                  (click)="checkedInputs.flexCheckHabit=!checkedInputs.flexCheckHabit"
+                   class="check-list__list__item__newHabit defaultCursor">
+                   {{newHabit? newHabit.text : ''}}
+                </p>
             </div>
         </div>
 
@@ -70,7 +74,7 @@
                     J'ai travaillé 25 min sans interruption sur&nbsp;:
                 </label>
             </div>
-            <div class="form-check section__list__item__block">
+            <div class="form-check section__list__item__block" (click)="checkedInputs.flexCheckWork=!checkedInputs.flexCheckWork">
                 <mat-form-field class="section__list__item__textarea">
                     <mat-label>Travail réalisé</mat-label>
                     <textarea type="text" placeholder="Ex. L'élaboration de mon jeu de société" matInput></textarea>
@@ -83,7 +87,7 @@
           [ngClass]="{'no-print': !checkedInputs.flexCheckNew}">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" [(ngModel)]="checkedInputs.flexCheckNew" id="flexCheckNew">
-                <mat-form-field class="section__list__item__textarea">
+                <mat-form-field class="section__list__item__textarea" (click)="checkedInputs.flexCheckNew=!checkedInputs.flexCheckNew">
                     <mat-label>J'ai appris quelque chose de nouveau&nbsp;:</mat-label>
                     <textarea type="text" placeholder="Ex. L'existence système Dominic" matInput></textarea>
                 </mat-form-field>
@@ -100,7 +104,7 @@
                     </label>
             </div>
 
-            <div class="form-check section__list__item__block">
+            <div class="form-check section__list__item__block" (click)="checkedInputs.flexCheckIdeas=!checkedInputs.flexCheckIdeas">
                 <mat-form-field
                   *ngFor="let idea of ideas.ideasList;let index = index;trackBy: trackByFn;"
                   class="section__list__item__textarea">
@@ -122,7 +126,7 @@
           *ngFor="let task of tasks.taskList;let index = index;trackBy: trackByFn;">
             <div class="form-check">
                 <input class="form-check-input" placeholder="Ex. Cuisiner un repas par jour" [(ngModel)]="checkedInputs['flexCheckTask_'+index]" [id]="'flexCheckTask_'+index" type="checkbox">
-                <mat-form-field class="section__list__item__textarea">
+                <mat-form-field class="section__list__item__textarea" (click)="checkedInputs['flexCheckTask_'+index]=!checkedInputs['flexCheckTask_'+index]">
                     <textarea type="text" matInput [(ngModel)]="tasks.taskList[index]"></textarea>
                     <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeTask(index)">
                         <mat-icon>close</mat-icon>
