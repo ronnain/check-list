@@ -14,9 +14,9 @@ export class AppComponent  implements OnInit {
 
   checkList:any = {
     counter: 0,
-    newHabit: {text:'', when:''},
+    newHabit: {text:'', when:'', valid: {easy:false, motivating:false, rightPlaced:false}},
     rewards: {rewardsList:['','','']},
-    ideas: {ideasList:['test','deuxieme test']},
+    ideas: {ideasList:['']},
     tasks: {taskList:[]}
   }
 

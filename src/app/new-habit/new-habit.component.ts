@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewHabitComponent implements OnInit {
 
-  @Input() newHabit: any = {text:'', when:''};
+  @Input() newHabit: any = {text:'', when:'', valid: {easy:false, motivating:false, rightPlaced:false}};
 
   constructor() { }
 
