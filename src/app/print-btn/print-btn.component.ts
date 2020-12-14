@@ -15,6 +15,9 @@ export class PrintBtnComponent implements OnInit {
   }
 
   print() {
+    const currentDate = new Date();
+    const day = [currentDate.getDate(), currentDate.getMonth(), currentDate.getFullYear()];
+    document.title = 'checkList-'+ day.join('_');
     this.onPrinting.emit();
     window.print();
   }

@@ -110,7 +110,7 @@
                   class="section__list__item__textarea">
                     <mat-label>Idée {{index+1}}</mat-label>
                     <textarea type="text" placeholder="Ex. Décorer la chambre" [(ngModel)]="ideas.ideasList[index]" matInput></textarea>
-                    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeIdeas(index)">
+                    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeIdeas(index)" class="no-print">
                         <mat-icon>close</mat-icon>
                     </button>
                 </mat-form-field>
@@ -128,7 +128,7 @@
                 <input class="form-check-input" placeholder="Ex. Cuisiner un repas par jour" [(ngModel)]="checkedInputs['flexCheckTask_'+index]" [id]="'flexCheckTask_'+index" type="checkbox">
                 <mat-form-field class="section__list__item__textarea" (click)="checkedInputs['flexCheckTask_'+index]=!checkedInputs['flexCheckTask_'+index]">
                     <textarea type="text" matInput [(ngModel)]="tasks.taskList[index]"></textarea>
-                    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeTask(index)">
+                    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeTask(index)"  class="no-print">
                         <mat-icon>close</mat-icon>
                     </button>
                 </mat-form-field>
