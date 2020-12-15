@@ -21,9 +21,10 @@
                     J'ai tenu mon habitude&nbsp;:
                 </label>
                 <p
+                  *ngIf="newHabit && newHabit.text"
                   (click)="checkedInputs.flexCheckHabit=!checkedInputs.flexCheckHabit"
-                   class="check-list__list__item__newHabit defaultCursor">
-                   {{newHabit? newHabit.text : ''}}
+                  class="check-list__list__item__newHabit defaultCursor">
+                   {{newHabit.text}}
                 </p>
             </div>
         </div>
@@ -77,7 +78,7 @@
             <div class="form-check section__list__item__block" (click)="checkedInputs.flexCheckWork=!checkedInputs.flexCheckWork">
                 <mat-form-field class="section__list__item__textarea">
                     <mat-label>Travail réalisé</mat-label>
-                    <textarea type="text" placeholder="Ex. L'élaboration de mon jeu de société" matInput></textarea>
+                    <textarea type="text" placeholder="Ex. L'élaboration de mon jeu de société" matInput cdkTextareaAutosize></textarea>
                 </mat-form-field>
             </div>
         </div>
@@ -89,7 +90,7 @@
                 <input class="form-check-input" type="checkbox" [(ngModel)]="checkedInputs.flexCheckNew" id="flexCheckNew">
                 <mat-form-field class="section__list__item__textarea" (click)="checkedInputs.flexCheckNew=!checkedInputs.flexCheckNew">
                     <mat-label>J'ai appris quelque chose de nouveau&nbsp;:</mat-label>
-                    <textarea type="text" placeholder="Ex. L'existence système Dominic" matInput></textarea>
+                    <textarea type="text" placeholder="Ex. L'existence système Dominic" matInput cdkTextareaAutosize></textarea>
                 </mat-form-field>
             </div>
         </div>
@@ -109,7 +110,7 @@
                   *ngFor="let idea of ideas.ideasList;let index = index;trackBy: trackByFn;"
                   class="section__list__item__textarea">
                     <mat-label>Idée {{index+1}}</mat-label>
-                    <textarea type="text" placeholder="Ex. Décorer la chambre" [(ngModel)]="ideas.ideasList[index]" matInput></textarea>
+                    <textarea type="text" placeholder="Ex. Décorer la chambre" [(ngModel)]="ideas.ideasList[index]" matInput cdkTextareaAutosize></textarea>
                     <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeIdeas(index)" class="no-print">
                         <mat-icon>close</mat-icon>
                     </button>
@@ -127,7 +128,7 @@
             <div class="form-check">
                 <input class="form-check-input" placeholder="Ex. Cuisiner un repas par jour" [(ngModel)]="checkedInputs['flexCheckTask_'+index]" [id]="'flexCheckTask_'+index" type="checkbox">
                 <mat-form-field class="section__list__item__textarea" (click)="checkedInputs['flexCheckTask_'+index]=!checkedInputs['flexCheckTask_'+index]">
-                    <textarea type="text" matInput [(ngModel)]="tasks.taskList[index]"></textarea>
+                    <textarea type="text" matInput cdkTextareaAutosize [(ngModel)]="tasks.taskList[index]"></textarea>
                     <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeTask(index)"  class="no-print">
                         <mat-icon>close</mat-icon>
                     </button>
