@@ -70,7 +70,7 @@
                 <label class="form-check-label" for="flexCheckRead">
                     J'ai lu
                     <mat-form-field class="check-list__inputNumber">
-                        <input matInput (blur)="onCheckListChange();" type="number">
+                        <input matInput [(ngModel)]="checkListFields.pageCounter" (blur)="onCheckListChange();" type="number">
                     </mat-form-field>
                     pages d'un livre.
                 </label>
@@ -89,7 +89,7 @@
             <div class="form-check section__list__item__block" (click)="checkBox.flexCheckWork=!checkBox.flexCheckWork">
                 <mat-form-field class="section__list__item__textarea">
                     <mat-label>Travail réalisé</mat-label>
-                    <textarea type="text" placeholder="Ex. L'élaboration de mon jeu de société" (blur)="onCheckListChange();" matInput cdkTextareaAutosize></textarea>
+                    <textarea type="text" placeholder="Ex. L'élaboration de mon jeu de société" [(ngModel)]="checkListFields.workingTask" (blur)="onCheckListChange();" matInput cdkTextareaAutosize></textarea>
                 </mat-form-field>
             </div>
         </div>

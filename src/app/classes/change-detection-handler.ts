@@ -9,7 +9,7 @@ export class ChangeDetectionHandler {
     constructor(public checkListService: CheckListService) {
         this.checklistChangeSubject
             .pipe(
-                debounceTime(2000)
+                debounceTime(1500)
             )
             .subscribe(data => this.checkListService.saveCheckList());
     }

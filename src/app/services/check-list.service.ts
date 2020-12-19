@@ -17,6 +17,7 @@ export class CheckListService {
     rewards: {rewardsList:['','','']},
     ideas: {ideasList:['']},
     tasks: {taskList:[]},
+    checkListFields: {pageCounter: 0, workingTask: ''},
     checkBox: {}
   };
 
@@ -41,6 +42,7 @@ export class CheckListService {
     this.updateCounter();
     this.updateCheckBox();
     this.updateGoals();
+    this.updateCheckListFields();
   }
 
   saveCheckList() {
@@ -84,6 +86,15 @@ export class CheckListService {
   updateGoals() {
     if (!this.checkList.goals || this.is_a_new_day) {
       this.checkList.goals = {goalsList:['','','']};
+    }
+  }
+
+  /**
+   * Reset check list fields if it is a new day
+   */
+  updateCheckListFields() {
+    if (!this.checkList.checkListFields || this.is_a_new_day) {
+      this.checkList.checkListFields = {pageCounter: 0, workingTask: ''}
     }
   }
 }

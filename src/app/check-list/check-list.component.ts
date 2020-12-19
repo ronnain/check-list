@@ -13,6 +13,7 @@ export class CheckListComponent extends ChangeDetectionHandler implements OnInit
   @Input() newHabit:any = {text:''};
   @Input() ideas:any = {ideasList:['']};
   @Input() tasks:any = {taskList:[]};
+  @Input() checkListFields:any = {pageCounter: 0, workingTask: ''};
   @Input() checkBox: any = {}
 
   constructor(public checkListService: CheckListService) {
