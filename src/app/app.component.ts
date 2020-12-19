@@ -17,6 +17,7 @@ export class AppComponent  implements OnInit {
     date: new Date(),
     counter: 1,
     newHabit: {text:'', when:'', valid: {easy:false, motivating:false, rightPlaced:false}},
+    goals: {goalsList:['','','']},
     rewards: {rewardsList:['','','']},
     ideas: {ideasList:['']},
     tasks: {taskList:[]},
@@ -32,8 +33,10 @@ export class AppComponent  implements OnInit {
     if(retrievedData) {
       this.checkList = retrievedData;
     }
+    this.checkNewDay();
     this.updateCounter();
     this.updateCheckBox();
+    this.updateGoals();
   }
 
   save() {
@@ -41,15 +44,24 @@ export class AppComponent  implements OnInit {
   }
 
   /**
-   * If previous date and not the same day, increment counter
+   * Check if it is a new day
    */
-  updateCounter() {
+  checkNewDay() {
     const currentDate = new Date();
     const checkListDate = new Date(this.checkList.date);
+
     if (!this.checkList.date || (checkListDate.getTime() < currentDate.getTime() && checkListDate.getDay() < currentDate.getDay())) {
-      this.checkList.date = currentDate;
-      this.checkList.counter ++;
+      this.checkList.date = new Date();
       this.is_a_new_day = true;
+    }
+  }
+
+  /**
+   * Increment counter if it is a new day
+   */
+  updateCounter() {
+    if (this.is_a_new_day) {
+      this.checkList.counter ++;
     }
   }
 
@@ -59,6 +71,15 @@ export class AppComponent  implements OnInit {
   updateCheckBox() {
     if (!this.checkList.checkBox || this.is_a_new_day) {
       this.checkList.checkBox = {};
+    }
+  }
+
+  /**
+   * Reset goals if it is a new day
+   */
+  updateGoals() {
+    if (!this.checkList.goals || this.is_a_new_day) {
+      this.checkList.goals = {goalsList:['','','']};
     }
   }
 }

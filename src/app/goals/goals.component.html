@@ -18,19 +18,21 @@
                   placeholder="Ex. Lire au moins 50 pages"
                   matInput
                   cdkTextareaAutosize
-                  required></textarea>
+                  [(ngModel)]="goals.goalsList[0]"
+                  required>
+                </textarea>
             </mat-form-field>
         </div>
         <div class="section__list__item">
             <mat-form-field class="section__list__item__textarea">
                 <mat-label>Objectif hebdomadaire</mat-label>
-                <textarea type="text" placeholder="Ex. Lire un livre par semaine" matInput cdkTextareaAutosize required></textarea>
+                <textarea type="text" placeholder="Ex. Lire un livre par semaine" matInput cdkTextareaAutosize [(ngModel)]="goals.goalsList[1]" required></textarea>
             </mat-form-field>
         </div>
         <div class="section__list__item">
             <mat-form-field class="section__list__item__textarea">
                 <mat-label>Objectif final</mat-label>
-                <textarea type="text" placeholder="Ex. Livre 52 livres" matInput cdkTextareaAutosize required></textarea>
+                <textarea type="text" placeholder="Ex. Livre 52 livres" matInput cdkTextareaAutosize [(ngModel)]="goals.goalsList[2]" required></textarea>
             </mat-form-field>
         </div>
 
