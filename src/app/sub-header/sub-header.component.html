@@ -6,7 +6,7 @@
         <div class="subHeader__container__text">
             <p>Aujourd'hui cela fait</p>
             <mat-form-field class="subHeader__container__text__counter" matTooltip="S'incrémente automatiquement chaque jour" matTooltipPosition="above">
-                <input matInput type="number" [(ngModel)]="counter" (ngModelChange)="updateCounter()">
+                <input matInput type="number" [(ngModel)]="counter" (ngModelChange)="updateCounter(); onCheckListChange();">
             </mat-form-field>
             <p class="pDays">jour<span *ngIf="counter > 1">s</span>&nbsp;</p>
             <p>que je valide ma checklist&nbsp;!</p>

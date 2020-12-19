@@ -13,12 +13,26 @@
     <div class="section__list">
         <mat-form-field class="section__list__item__textarea">
             <mat-label>Ma nouvelle super habitude</mat-label>
-            <textarea type="text" placeholder="Ex. Lire tous les jours" [(ngModel)]="newHabit.text" matInput cdkTextareaAutosize required></textarea>
+            <textarea
+            type="text"
+            placeholder="Ex. Lire tous les jours"
+            [(ngModel)]="newHabit.text"
+            (blur)="onCheckListChange();"
+            matInput
+            cdkTextareaAutosize
+            required></textarea>
         </mat-form-field>
         <div class="section__list__item">
             <mat-form-field class="section__list__item__textarea">
                 <mat-label>Le moment exact de la journée où je le fais (juste après l'habitude que j'ai déjà):</mat-label>
-                <textarea type="text" placeholder="Ex. Dès que je rentre dans les transport en commun" [(ngModel)]="newHabit.when" matInput cdkTextareaAutosize required></textarea>
+                <textarea
+                type="text"
+                placeholder="Ex. Dès que je rentre dans les transport en commun"
+                [(ngModel)]="newHabit.when"
+                (blur)="onCheckListChange();"
+                matInput
+                cdkTextareaAutosize
+                required></textarea>
             </mat-form-field>
         </div>
     </div>
@@ -29,21 +43,21 @@
 
     <div class="d-flex justify-content-between habit_requirement_checks">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" [(ngModel)]="newHabit.valid.easy" id="flexCheckTime">
+            <input class="form-check-input" type="checkbox" [(ngModel)]="newHabit.valid.easy" (ngModelChange)="onCheckListChange();" id="flexCheckTime">
             <label class="form-check-label" for="flexCheckTime">
                 Facile à réaliser (-de 5min)&nbsp;?
             </label>
         </div>
 
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" [(ngModel)]="newHabit.valid.motivating" id="flexCheckInspi">
+            <input class="form-check-input" type="checkbox" [(ngModel)]="newHabit.valid.motivating" (ngModelChange)="onCheckListChange();" id="flexCheckInspi">
             <label class="form-check-label" for="flexCheckInspi">
                 Inspirante&nbsp;?
             </label>
         </div>
 
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" [(ngModel)]="newHabit.valid.rightPlaced" id="flexCheckCorrectPlaced">
+            <input class="form-check-input" type="checkbox" [(ngModel)]="newHabit.valid.rightPlaced" (ngModelChange)="onCheckListChange();" id="flexCheckCorrectPlaced">
             <label class="form-check-label" for="flexCheckCorrectPlaced">
                 Bien placé dans la journée&nbsp;?
             </label>

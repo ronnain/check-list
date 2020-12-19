@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'print-btn',
@@ -7,9 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class PrintBtnComponent implements OnInit {
 
-  @Output() onPrinting = new EventEmitter<null>();
-
-  constructor() { }
+  constructor(private storageService: StorageService) { }
 
   ngOnInit(): void {
   }
@@ -18,8 +17,11 @@ export class PrintBtnComponent implements OnInit {
     const currentDate = new Date();
     const day = [currentDate.getDate(), currentDate.getMonth(), currentDate.getFullYear()];
     document.title = 'checkList-'+ day.join('_');
-    this.onPrinting.emit();
+    this.saveCurrentCheckList();
     window.print();
   }
 
+  saveCurrentCheckList() {
+    this.storageService.saveCheckList();
+  }
 }

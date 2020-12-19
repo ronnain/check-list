@@ -10,37 +10,21 @@ import { StorageService } from './services/storage.service';
 export class AppComponent  implements OnInit {
   title = 'check-list';
 
-  key:string = 'checkList';
   is_a_new_day: boolean = false; // Use to know if it is a new day (reset some fields)
 
-  checkList:any = {
-    date: new Date(),
-    counter: 1,
-    newHabit: {text:'', when:'', valid: {easy:false, motivating:false, rightPlaced:false}},
-    goals: {goalsList:['','','']},
-    rewards: {rewardsList:['','','']},
-    ideas: {ideasList:['']},
-    tasks: {taskList:[]},
-    checkBox: {}
-  }
-
+  // to do save champs appris aujourd'hui
+  checkList:any;
   constructor(private storageService:StorageService) {
-
   }
-  ngOnInit(): void {
-    const retrievedData= this.storageService.retrieveData(this.key);
 
-    if(retrievedData) {
-      this.checkList = retrievedData;
-    }
+  ngOnInit(): void {
+    this.checkList= this.storageService.retrieveChecklist();
     this.checkNewDay();
     this.updateCounter();
     this.updateCheckBox();
     this.updateGoals();
-  }
 
-  save() {
-    this.storageService.save(this.key, this.checkList);
+    this.storageService.setCheckList(this.checkList);
   }
 
   /**

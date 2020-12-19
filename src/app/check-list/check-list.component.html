@@ -16,13 +16,13 @@
           class="check-list__list__item"
           [ngClass]="{'no-print': !checkBox.flexCheckHabit}">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckHabit" id="flexCheckHabit">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckHabit" (ngModelChange)="onCheckListChange();" id="flexCheckHabit">
                 <label class="form-check-label" for="flexCheckHabit">
                     J'ai tenu mon habitude&nbsp;:
                 </label>
                 <p
                   *ngIf="newHabit && newHabit.text"
-                  (click)="checkBox.flexCheckHabit=!checkBox.flexCheckHabit"
+                  (click)="checkBox.flexCheckHabit=!checkBox.flexCheckHabit; onCheckListChange();"
                   class="check-list__list__item__newHabit defaultCursor">
                    {{newHabit.text}}
                 </p>
@@ -33,7 +33,7 @@
           class="section__list__item"
           [ngClass]="{'no-print': !checkBox.flexCheckDailyGoal}">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckDailyGoal" id="flexCheckDailyGoal">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckDailyGoal" (ngModelChange)="onCheckListChange();" id="flexCheckDailyGoal">
                 <label class="form-check-label" for="flexCheckDailyGoal">
                     J'ai accompli mon objectif du jour
                 </label>
@@ -44,7 +44,7 @@
           class="section__list__item"
           [ngClass]="{'no-print': !checkBox.flexCheckSport}">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckSport" id="flexCheckSport">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckSport" (ngModelChange)="onCheckListChange();" id="flexCheckSport">
                 <label class="form-check-label" for="flexCheckSport">
                     J'ai fait de l'activité physique
                 </label>
@@ -55,7 +55,7 @@
           class="section__list__item"
           [ngClass]="{'no-print': !checkBox.flexCheckFamilly}">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckFamilly" id="flexCheckFamilly">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckFamilly" (ngModelChange)="onCheckListChange();" id="flexCheckFamilly">
                 <label class="form-check-label" for="flexCheckFamilly">
                     J'ai pris soin de mes relations / amis / entourage.
                 </label>
@@ -66,11 +66,11 @@
           class="section__list__item"
           [ngClass]="{'no-print': !checkBox.flexCheckRead}">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckRead" id="flexCheckRead">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckRead" (ngModelChange)="onCheckListChange();" id="flexCheckRead">
                 <label class="form-check-label" for="flexCheckRead">
                     J'ai lu
                     <mat-form-field class="check-list__inputNumber">
-                        <input matInput type="number">
+                        <input matInput (blur)="onCheckListChange();" type="number">
                     </mat-form-field>
                     pages d'un livre.
                 </label>
@@ -81,7 +81,7 @@
           class="check-list__list__item"
           [ngClass]="{'no-print': !checkBox.flexCheckWork}">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckWork" id="flexCheckWork">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckWork" (ngModelChange)="onCheckListChange();" id="flexCheckWork">
                 <label class="form-check-label" for="flexCheckWork">
                     J'ai travaillé 25 min sans interruption sur&nbsp;:
                 </label>
@@ -89,7 +89,7 @@
             <div class="form-check section__list__item__block" (click)="checkBox.flexCheckWork=!checkBox.flexCheckWork">
                 <mat-form-field class="section__list__item__textarea">
                     <mat-label>Travail réalisé</mat-label>
-                    <textarea type="text" placeholder="Ex. L'élaboration de mon jeu de société" matInput cdkTextareaAutosize></textarea>
+                    <textarea type="text" placeholder="Ex. L'élaboration de mon jeu de société" (blur)="onCheckListChange();" matInput cdkTextareaAutosize></textarea>
                 </mat-form-field>
             </div>
         </div>
@@ -98,10 +98,10 @@
           class="section__list__item"
           [ngClass]="{'no-print': !checkBox.flexCheckNew}">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckNew" id="flexCheckNew">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckNew" (ngModelChange)="onCheckListChange();" id="flexCheckNew">
                 <mat-form-field class="section__list__item__textarea" (click)="checkBox.flexCheckNew=!checkBox.flexCheckNew">
                     <mat-label>J'ai appris quelque chose de nouveau&nbsp;:</mat-label>
-                    <textarea type="text" placeholder="Ex. L'existence système Dominic" matInput cdkTextareaAutosize></textarea>
+                    <textarea type="text" placeholder="Ex. L'existence système Dominic" (blur)="onCheckListChange();" matInput cdkTextareaAutosize></textarea>
                 </mat-form-field>
             </div>
         </div>
@@ -110,7 +110,7 @@
           class="check-list__list__item"
           [ngClass]="{'no-print': !checkBox.flexCheckIdeas}">
             <div class="form-check section__list__item__block">
-                    <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckIdeas" id="flexCheckIdeas">
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckIdeas" (ngModelChange)="onCheckListChange();" id="flexCheckIdeas">
                     <label class="form-check-label" for="flexCheckIdeas">
                         J'ai trouvé au moins 3 nouvelles idées&nbsp;:
                     </label>
@@ -121,8 +121,8 @@
                   *ngFor="let idea of ideas.ideasList;let index = index;trackBy: trackByFn;"
                   class="section__list__item__textarea">
                     <mat-label>Idée {{index+1}}</mat-label>
-                    <textarea type="text" placeholder="Ex. Décorer la chambre" [(ngModel)]="ideas.ideasList[index]" matInput cdkTextareaAutosize></textarea>
-                    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeIdeas(index)" class="no-print">
+                    <textarea type="text" placeholder="Ex. Décorer la chambre" [(ngModel)]="ideas.ideasList[index]" (blur)="onCheckListChange();" matInput cdkTextareaAutosize></textarea>
+                    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeIdeas(index); onCheckListChange();" class="no-print">
                         <mat-icon>close</mat-icon>
                     </button>
                 </mat-form-field>
@@ -137,10 +137,10 @@
           [ngClass]="{'no-print': !checkBox['flexCheckTask_'+index]}"
           *ngFor="let task of tasks.taskList;let index = index;trackBy: trackByFn;">
             <div class="form-check">
-                <input class="form-check-input" placeholder="Ex. Cuisiner un repas par jour" [(ngModel)]="checkBox['flexCheckTask_'+index]" [id]="'flexCheckTask_'+index" type="checkbox">
+                <input class="form-check-input" placeholder="Ex. Cuisiner un repas par jour" [(ngModel)]="checkBox['flexCheckTask_'+index]" (ngModelChange)="onCheckListChange();" [id]="'flexCheckTask_'+index" type="checkbox">
                 <mat-form-field class="section__list__item__textarea" (click)="checkBox['flexCheckTask_'+index]=!checkBox['flexCheckTask_'+index]">
-                    <textarea type="text" matInput cdkTextareaAutosize [(ngModel)]="tasks.taskList[index]"></textarea>
-                    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeTask(index)"  class="no-print">
+                    <textarea type="text" matInput cdkTextareaAutosize [(ngModel)]="tasks.taskList[index]" (blur)="onCheckListChange();"></textarea>
+                    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeTask(index); onCheckListChange()"  class="no-print">
                         <mat-icon>close</mat-icon>
                     </button>
                 </mat-form-field>
