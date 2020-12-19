@@ -9,8 +9,6 @@ export class StorageService {
   }
 
   save(key:string, object:any) {
-    console.log(key, object);
-
     this.saveInLocalStorage(key, object);
   }
 
