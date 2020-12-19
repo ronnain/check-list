@@ -53,6 +53,17 @@
 
         <div
           class="section__list__item"
+          [ngClass]="{'no-print': !checkedInputs.flexCheckFamilly}">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="checkedInputs.flexCheckFamilly" id="flexCheckFamilly">
+                <label class="form-check-label" for="flexCheckFamilly">
+                    J'ai pris soin de mes relations / amis / entourage.
+                </label>
+            </div>
+        </div>
+
+        <div
+          class="section__list__item"
           [ngClass]="{'no-print': !checkedInputs.flexCheckRead}">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" [(ngModel)]="checkedInputs.flexCheckRead" id="flexCheckRead">
