@@ -1,7 +1,7 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ChangeDetectionHandler } from '../classes/change-detection-handler';
-import { StorageService } from '../services/storage.service';
+import { CheckListService } from '../services/check-list.service';
 
 @Component({
   selector: 'app-check-list',
@@ -15,8 +15,8 @@ export class CheckListComponent extends ChangeDetectionHandler implements OnInit
   @Input() tasks:any = {taskList:[]};
   @Input() checkBox: any = {}
 
-  constructor(public storageService: StorageService) {
-    super(storageService);
+  constructor(public checkListService: CheckListService) {
+    super(checkListService);
   }
 
   ngOnInit(): void {

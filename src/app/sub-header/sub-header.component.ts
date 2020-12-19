@@ -1,7 +1,7 @@
 import { EventEmitter, Input, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ChangeDetectionHandler } from '../classes/change-detection-handler';
-import { StorageService } from '../services/storage.service';
+import { CheckListService } from '../services/check-list.service';
 
 
 @Component({
@@ -15,8 +15,8 @@ export class SubHeaderComponent extends ChangeDetectionHandler implements OnInit
 
   @Input() counter: number = 0;
 
-  constructor(public storageService: StorageService) {
-    super(storageService);
+  constructor(public checkListService: CheckListService) {
+    super(checkListService);
   }
 
   ngOnInit(): void {

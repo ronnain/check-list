@@ -1,17 +1,17 @@
 import { Subject } from "rxjs";
 import { debounceTime } from "rxjs/operators";
-import { StorageService } from "../services/storage.service";
+import { CheckListService } from "../services/check-list.service";
 
 export class ChangeDetectionHandler {
 
     checklistChangeSubject = new Subject();
 
-    constructor(public storageService: StorageService) {
+    constructor(public checkListService: CheckListService) {
         this.checklistChangeSubject
             .pipe(
                 debounceTime(2000)
             )
-            .subscribe(data => this.storageService.saveCheckList());
+            .subscribe(data => this.checkListService.saveCheckList());
     }
 
     onCheckListChange() {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StorageService } from '../services/storage.service';
+import { CheckListService } from '../services/check-list.service';
 
 @Component({
   selector: 'print-btn',
@@ -8,7 +8,7 @@ import { StorageService } from '../services/storage.service';
 })
 export class PrintBtnComponent implements OnInit {
 
-  constructor(private storageService: StorageService) { }
+  constructor(private checkListService: CheckListService) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +22,6 @@ export class PrintBtnComponent implements OnInit {
   }
 
   saveCurrentCheckList() {
-    this.storageService.saveCheckList();
+    this.checkListService.saveCheckList();
   }
 }
