@@ -11,6 +11,7 @@ export class AppComponent  implements OnInit {
   title = 'check-list';
 
   key:string = 'checkList';
+  is_a_new_day: boolean = false; // Use to know if it is a new day (reset some fields)
 
   checkList:any = {
     date: new Date(),
@@ -18,7 +19,8 @@ export class AppComponent  implements OnInit {
     newHabit: {text:'', when:'', valid: {easy:false, motivating:false, rightPlaced:false}},
     rewards: {rewardsList:['','','']},
     ideas: {ideasList:['']},
-    tasks: {taskList:[]}
+    tasks: {taskList:[]},
+    checkBox: {}
   }
 
   constructor(private storageService:StorageService) {
@@ -30,6 +32,8 @@ export class AppComponent  implements OnInit {
     if(retrievedData) {
       this.checkList = retrievedData;
     }
+    this.updateCounter();
+    this.updateCheckBox();
   }
 
   save() {
@@ -45,6 +49,16 @@ export class AppComponent  implements OnInit {
     if (!this.checkList.date || (checkListDate.getTime() < currentDate.getTime() && checkListDate.getDay() < currentDate.getDay())) {
       this.checkList.date = currentDate;
       this.checkList.counter ++;
+      this.is_a_new_day = true;
+    }
+  }
+
+  /**
+   * Reset check boxs if it is a new day
+   */
+  updateCheckBox() {
+    if (!this.checkList.checkBox || this.is_a_new_day) {
+      this.checkList.checkBox = {};
     }
   }
 }

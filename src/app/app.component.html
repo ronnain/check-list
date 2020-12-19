@@ -12,7 +12,7 @@
     </div>
 
 
-  <app-check-list [newHabit]="checkList.newHabit" [ideas]="checkList.ideas" [tasks]="checkList.tasks"></app-check-list>
+  <app-check-list [newHabit]="checkList.newHabit" [ideas]="checkList.ideas" [tasks]="checkList.tasks" [checkBox]="checkList.checkBox"></app-check-list>
   <app-new-habit [newHabit]="checkList.newHabit" (newHabitChange)='checkList.newHabit=$event'></app-new-habit>
 </div>
 

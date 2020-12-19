@@ -14,15 +14,15 @@
 
         <div
           class="check-list__list__item"
-          [ngClass]="{'no-print': !checkedInputs.flexCheckHabit}">
+          [ngClass]="{'no-print': !checkBox.flexCheckHabit}">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" [(ngModel)]="checkedInputs.flexCheckHabit" id="flexCheckHabit">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckHabit" id="flexCheckHabit">
                 <label class="form-check-label" for="flexCheckHabit">
                     J'ai tenu mon habitude&nbsp;:
                 </label>
                 <p
                   *ngIf="newHabit && newHabit.text"
-                  (click)="checkedInputs.flexCheckHabit=!checkedInputs.flexCheckHabit"
+                  (click)="checkBox.flexCheckHabit=!checkBox.flexCheckHabit"
                   class="check-list__list__item__newHabit defaultCursor">
                    {{newHabit.text}}
                 </p>
@@ -31,9 +31,9 @@
 
         <div
           class="section__list__item"
-          [ngClass]="{'no-print': !checkedInputs.flexCheckDailyGoal}">
+          [ngClass]="{'no-print': !checkBox.flexCheckDailyGoal}">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" [(ngModel)]="checkedInputs.flexCheckDailyGoal" id="flexCheckDailyGoal">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckDailyGoal" id="flexCheckDailyGoal">
                 <label class="form-check-label" for="flexCheckDailyGoal">
                     J'ai accompli mon objectif du jour
                 </label>
@@ -42,9 +42,9 @@
 
         <div
           class="section__list__item"
-          [ngClass]="{'no-print': !checkedInputs.flexCheckSport}">
+          [ngClass]="{'no-print': !checkBox.flexCheckSport}">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" [(ngModel)]="checkedInputs.flexCheckSport" id="flexCheckSport">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckSport" id="flexCheckSport">
                 <label class="form-check-label" for="flexCheckSport">
                     J'ai fait de l'activité physique
                 </label>
@@ -53,9 +53,9 @@
 
         <div
           class="section__list__item"
-          [ngClass]="{'no-print': !checkedInputs.flexCheckFamilly}">
+          [ngClass]="{'no-print': !checkBox.flexCheckFamilly}">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" [(ngModel)]="checkedInputs.flexCheckFamilly" id="flexCheckFamilly">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckFamilly" id="flexCheckFamilly">
                 <label class="form-check-label" for="flexCheckFamilly">
                     J'ai pris soin de mes relations / amis / entourage.
                 </label>
@@ -64,9 +64,9 @@
 
         <div
           class="section__list__item"
-          [ngClass]="{'no-print': !checkedInputs.flexCheckRead}">
+          [ngClass]="{'no-print': !checkBox.flexCheckRead}">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" [(ngModel)]="checkedInputs.flexCheckRead" id="flexCheckRead">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckRead" id="flexCheckRead">
                 <label class="form-check-label" for="flexCheckRead">
                     J'ai lu
                     <mat-form-field class="check-list__inputNumber">
@@ -79,14 +79,14 @@
 
         <div
           class="check-list__list__item"
-          [ngClass]="{'no-print': !checkedInputs.flexCheckWork}">
+          [ngClass]="{'no-print': !checkBox.flexCheckWork}">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" [(ngModel)]="checkedInputs.flexCheckWork" id="flexCheckWork">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckWork" id="flexCheckWork">
                 <label class="form-check-label" for="flexCheckWork">
                     J'ai travaillé 25 min sans interruption sur&nbsp;:
                 </label>
             </div>
-            <div class="form-check section__list__item__block" (click)="checkedInputs.flexCheckWork=!checkedInputs.flexCheckWork">
+            <div class="form-check section__list__item__block" (click)="checkBox.flexCheckWork=!checkBox.flexCheckWork">
                 <mat-form-field class="section__list__item__textarea">
                     <mat-label>Travail réalisé</mat-label>
                     <textarea type="text" placeholder="Ex. L'élaboration de mon jeu de société" matInput cdkTextareaAutosize></textarea>
@@ -96,10 +96,10 @@
 
         <div
           class="section__list__item"
-          [ngClass]="{'no-print': !checkedInputs.flexCheckNew}">
+          [ngClass]="{'no-print': !checkBox.flexCheckNew}">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" [(ngModel)]="checkedInputs.flexCheckNew" id="flexCheckNew">
-                <mat-form-field class="section__list__item__textarea" (click)="checkedInputs.flexCheckNew=!checkedInputs.flexCheckNew">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckNew" id="flexCheckNew">
+                <mat-form-field class="section__list__item__textarea" (click)="checkBox.flexCheckNew=!checkBox.flexCheckNew">
                     <mat-label>J'ai appris quelque chose de nouveau&nbsp;:</mat-label>
                     <textarea type="text" placeholder="Ex. L'existence système Dominic" matInput cdkTextareaAutosize></textarea>
                 </mat-form-field>
@@ -108,15 +108,15 @@
 
         <div
           class="check-list__list__item"
-          [ngClass]="{'no-print': !checkedInputs.flexCheckIdeas}">
+          [ngClass]="{'no-print': !checkBox.flexCheckIdeas}">
             <div class="form-check section__list__item__block">
-                    <input class="form-check-input" type="checkbox" [(ngModel)]="checkedInputs.flexCheckIdeas" id="flexCheckIdeas">
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="checkBox.flexCheckIdeas" id="flexCheckIdeas">
                     <label class="form-check-label" for="flexCheckIdeas">
                         J'ai trouvé au moins 3 nouvelles idées&nbsp;:
                     </label>
             </div>
 
-            <div class="form-check section__list__item__block" (click)="checkedInputs.flexCheckIdeas=!checkedInputs.flexCheckIdeas">
+            <div class="form-check section__list__item__block" (click)="checkBox.flexCheckIdeas=!checkBox.flexCheckIdeas">
                 <mat-form-field
                   *ngFor="let idea of ideas.ideasList;let index = index;trackBy: trackByFn;"
                   class="section__list__item__textarea">
@@ -134,11 +134,11 @@
 
         <div
           class="section__list__item"
-          [ngClass]="{'no-print': !checkedInputs['flexCheckTask_'+index]}"
+          [ngClass]="{'no-print': !checkBox['flexCheckTask_'+index]}"
           *ngFor="let task of tasks.taskList;let index = index;trackBy: trackByFn;">
             <div class="form-check">
-                <input class="form-check-input" placeholder="Ex. Cuisiner un repas par jour" [(ngModel)]="checkedInputs['flexCheckTask_'+index]" [id]="'flexCheckTask_'+index" type="checkbox">
-                <mat-form-field class="section__list__item__textarea" (click)="checkedInputs['flexCheckTask_'+index]=!checkedInputs['flexCheckTask_'+index]">
+                <input class="form-check-input" placeholder="Ex. Cuisiner un repas par jour" [(ngModel)]="checkBox['flexCheckTask_'+index]" [id]="'flexCheckTask_'+index" type="checkbox">
+                <mat-form-field class="section__list__item__textarea" (click)="checkBox['flexCheckTask_'+index]=!checkBox['flexCheckTask_'+index]">
                     <textarea type="text" matInput cdkTextareaAutosize [(ngModel)]="tasks.taskList[index]"></textarea>
                     <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeTask(index)"  class="no-print">
                         <mat-icon>close</mat-icon>

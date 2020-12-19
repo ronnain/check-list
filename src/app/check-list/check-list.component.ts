@@ -11,8 +11,7 @@ export class CheckListComponent implements OnInit {
   @Input() newHabit:any = {text:''};
   @Input() ideas:any = {ideasList:['']};
   @Input() tasks:any = {taskList:[]};
-
-  checkedInputs: any = {}
+  @Input() checkBox: any = {}
 
   constructor() { }
 
