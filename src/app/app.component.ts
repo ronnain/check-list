@@ -13,7 +13,8 @@ export class AppComponent  implements OnInit {
   key:string = 'checkList';
 
   checkList:any = {
-    counter: 0,
+    date: new Date(),
+    counter: 1,
     newHabit: {text:'', when:'', valid: {easy:false, motivating:false, rightPlaced:false}},
     rewards: {rewardsList:['','','']},
     ideas: {ideasList:['']},
@@ -25,6 +26,7 @@ export class AppComponent  implements OnInit {
   }
   ngOnInit(): void {
     const retrievedData= this.storageService.retrieveData(this.key);
+
     if(retrievedData) {
       this.checkList = retrievedData;
     }
@@ -32,5 +34,17 @@ export class AppComponent  implements OnInit {
 
   save() {
     this.storageService.save(this.key, this.checkList);
+  }
+
+  /**
+   * If previous date and not the same day, increment counter
+   */
+  updateCounter() {
+    const currentDate = new Date();
+    const checkListDate = new Date(this.checkList.date);
+    if (!this.checkList.date || (checkListDate.getTime() < currentDate.getTime() && checkListDate.getDay() < currentDate.getDay())) {
+      this.checkList.date = currentDate;
+      this.checkList.counter ++;
+    }
   }
 }
