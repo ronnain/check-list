@@ -56,7 +56,7 @@ export class CheckListService {
     const currentDate = new Date();
     const checkListDate = new Date(this.checkList.date);
 
-    if (!this.checkList.date || (checkListDate.getTime() < currentDate.getTime() && checkListDate.getDay() < currentDate.getDay())) {
+    if (!this.checkList.date || (checkListDate.getTime() < currentDate.getTime() && checkListDate.getDate() < currentDate.getDate())) {
       this.checkList.date = new Date();
       this.is_a_new_day = true;
     }

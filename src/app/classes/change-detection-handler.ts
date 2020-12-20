@@ -11,7 +11,9 @@ export class ChangeDetectionHandler {
             .pipe(
                 debounceTime(1500)
             )
-            .subscribe(data => this.checkListService.saveCheckList());
+            .subscribe(data => {
+                this.checkListService.saveCheckList()
+            });
     }
 
     onCheckListChange() {
