@@ -1,0 +1,13 @@
+{
+  "appId": "com.checklist.app",
+  "appName": "check-list",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist/check-list",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

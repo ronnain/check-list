@@ -2,6 +2,7 @@ import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { CheckListService } from './services/check-list.service';
 import { StorageService } from './services/storage.service';
+import { Capacitor } from '@capacitor/core';
 
 @Component({
   selector: 'app-root',
@@ -19,5 +20,7 @@ export class AppComponent  implements OnInit {
 
   ngOnInit(): void {
     this.checkList= this.checkListService.getChecklist();
+    console.log("Capacitor.getPlatform()",Capacitor.getPlatform(), Capacitor.isNative);
+
   }
 }
