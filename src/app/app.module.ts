@@ -12,6 +12,7 @@ import { NewHabitComponent } from './new-habit/new-habit.component';
 import { RewardsComponent } from './rewards/rewards.component';
 import { FormsModule } from '@angular/forms';
 import { PrintBtnComponent } from './print-btn/print-btn.component';
+import { Printer } from '@ionic-native/printer/ngx';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { PrintBtnComponent } from './print-btn/print-btn.component';
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [Printer],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

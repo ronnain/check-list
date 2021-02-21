@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod && firebase deploy"
+    "deploy": "ng build --prod && firebase deploy",
+    "build:all": "ng build --prod && npx cap copy",
+    "dev:android": "npm run build:all && npx cap copy android && npx cap open android"
   },
   "private": true,
   "dependencies": {
@@ -26,6 +28,7 @@
     "@capacitor/cli": "^2.4.6",
     "@capacitor/core": "^2.4.6",
     "@capacitor/ios": "^2.4.6",
+    "@ionic-native/core": "^5.31.1",
     "@ionic-native/printer": "^5.31.1",
     "@popperjs/core": "^2.5.4",
     "bootstrap": "^5.0.0-beta1",
@@ -45,6 +48,7 @@
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
+    "jetifier": "^1.6.6",
     "karma": "~5.1.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.0.3",
