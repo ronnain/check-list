@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { CheckListService } from '../services/check-list.service';
 import { Printer, PrintOptions } from '@ionic-native/printer/ngx';
 
@@ -8,23 +8,42 @@ import { Printer, PrintOptions } from '@ionic-native/printer/ngx';
   styleUrls: ['./print-btn.component.scss']
 })
 export class PrintBtnComponent implements OnInit {
-
-  constructor(private checkListService: CheckListService, private printer: Printer) { }
+  constructor(
+    private checkListService: CheckListService,
+    private printer: Printer,
+    private renderer: Renderer2) { }
 
   ngOnInit(): void {
     console.log("printer", this.printer);
+  }
+
+  print() {
+    const currentDate = new Date();
+    const day = [currentDate.getDate(), currentDate.getMonth(), currentDate.getFullYear()];
+    document.title = 'checkList-'+ day.join('_');
+    this.saveCurrentCheckList();
+    console.log("window.print()", window.document);
+
+    window.print();
 
     this.printer.isAvailable().then((onSuccess) => {
       console.log("success available printer");
 
       let options: PrintOptions = {
-        name: 'MyDocument',
+        name: 'TestPrint',
         duplex: true,
-        orientation: 'landscape',
-        monochrome: true
+        orientation: 'portrait',
+        monochrome: false,
+        photo: true
     }
 
-      let content = "Hello World";
+      let styles = '';
+      for (let i = 0; i < document.getElementsByTagName('style').length; i++) {
+        styles += document.getElementsByTagName('style').item(i)?.outerHTML;
+      }
+
+      let content = styles + document.getElementsByClassName('mainContainer')[0].outerHTML;
+
       this.printer.print(content, options).then((onSuccess) => {
         console.log("print success");
       }, (err) => {
@@ -34,16 +53,6 @@ export class PrintBtnComponent implements OnInit {
     , (err) => {
       console.log('Error pas available', err);
     });
-  }
-
-  print() {
-    const currentDate = new Date();
-    const day = [currentDate.getDate(), currentDate.getMonth(), currentDate.getFullYear()];
-    document.title = 'checkList-'+ day.join('_');
-    this.saveCurrentCheckList();
-    console.log("window.print()");
-
-    window.print();
   }
 
   saveCurrentCheckList() {
