@@ -30,21 +30,11 @@ export class PrintBtnComponent implements OnInit {
       console.log("success available printer");
 
       let options: PrintOptions = {
-        name: 'TestPrint',
-        duplex: true,
-        orientation: 'portrait',
-        monochrome: false,
-        photo: true
-    }
-
-      let styles = '';
-      for (let i = 0; i < document.getElementsByTagName('style').length; i++) {
-        styles += document.getElementsByTagName('style').item(i)?.outerHTML;
+        name: document.title,
+        duplex: true
       }
 
-      let content = styles + document.getElementsByClassName('mainContainer')[0].outerHTML;
-
-      this.printer.print(content, options).then((onSuccess) => {
+      this.printer.print().then((onSuccess) => {
         console.log("print success");
       }, (err) => {
         console.log('Error pas pribt', err);
