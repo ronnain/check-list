@@ -19,7 +19,6 @@ export class PrintBtnComponent implements OnInit {
     private platform: Platform) { }
 
   ngOnInit(): void {
-    console.log("printer", this.printer);
   }
 
   print() {
