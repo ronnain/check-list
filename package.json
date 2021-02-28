@@ -11,6 +11,7 @@
     "deploy": "ng build --prod && firebase deploy",
     "build:all": "ng build --prod && npx cap copy",
     "dev:android": "npm run build:all && npx cap copy android && npx cap open android",
+    "dev:ios": "npm run build:all && npx cap copy ios && npx cap open ios",
     "icon:generator": "cordova-res android --skip-config --copy && cordova-res ios --skip-config --copy"
   },
   "private": true,
