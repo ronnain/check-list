@@ -10,7 +10,8 @@
     "e2e": "ng e2e",
     "deploy": "ng build --prod && firebase deploy",
     "build:all": "ng build --prod && npx cap copy",
-    "dev:android": "npm run build:all && npx cap copy android && npx cap open android"
+    "dev:android": "npm run build:all && npx cap copy android && npx cap open android",
+    "icon:generator": "cordova-res android --skip-config --copy && cordova-res ios --skip-config --copy"
   },
   "private": true,
   "dependencies": {
